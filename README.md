@@ -1,2 +1,4 @@
-Wearify
-A Node.js weather application that suggests what to wear based on the temperature
+# Wearify
+A Node.js weather application that suggests what you should wear/bring based on the temperature outside
+
+[Live version](https://wearify.herokuapp.com/)
