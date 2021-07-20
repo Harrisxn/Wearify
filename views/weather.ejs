@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> <%= location%> [<%= weather %>] | Wearify</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="icon" href="<%=icon%>" type="image/png">
+  </head>
+  <body>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a id="myBtn">FAQ</a>
+      <div class="search-container">
+        <form action="/search" method="post">
+          <input name="city" type="text" placeholder="Enter a city.." name="Enter a city..">
+          <button id="submit" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Handcrafted with <i id="heart "class="fa fa-heart" aria-hidden="true" style="color:red" ></i> | Harrison</p>
+    </div>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <H1>Frequently asked questions</H1>
+        <br>
+        <h2>The weather information is inaccurate</h2>
+        <p>Sometimes the website provides users with information of a different location with the same name, to make sure this doesnt happen use the following format when searching. (City,Country) e.g Melbourne,AU</p>
+        <br>
+        <h2>The location information is inaccurate</h2>
+        <p>To determine your location the website uses your ip address, depending on where you are located can be inaccurate. To combat this use the search function to find your location. </p>
+      </div>
+    
+    </div>
+    <div class="container">
+      <fieldset>
+        
+        
+        
+        <% if(weathertemp > 0 && !(weathertemp>=15)){ %>
+           <% if(accessories === "Rain" || accessories === "Haze" || accessories === "Thunderstorm" )  { %>
+            <% if (intRandom === 1) { %>
+              <img class="people" src="/assests/People/accessories/rain1.png">
+           
+            <% } else if (intRandom === 2) { %>
+                <img class="people" src="/assests/People/accessories/rain2.png">
+            
+            <% } else if (intRandom === 3) { %>
+              <img class="people" src="/assests/People/accessories/rain2.png">
+            
+            <% } else if (intRandom === 4) { %>
+            <img class="people" src="/assests/People/accessories/rain2.png">
+            
+            <% } else if (intRandom === 5) { %>
+            <img class="people" src="/assests/People/accessories/rain2.png">
+
+            <% } %>
+            
+          <% } else if (intRandom === 1) { %>
+          <img class="people" src="/assests/People/Cold1.png">
+     
+          <% } else if (intRandom === 2) { %>
+          <img class="people" src="/assests/People/cold2.png">
+
+          <% } else if (intRandom === 3) { %>
+          <img class="people" src="/assests/People/cold3.png">
+
+          <% } else if (intRandom === 4) { %>
+            <img class="people" src="/assests/People/Cold4.png">
+
+          <% } else if (intRandom === 5) { %>
+            <img class="people" src="/assests/People/Cold5.png">
+
+        <% } %>
+        <% } %>
+
+        <% if(weathertemp > 15 && !(weathertemp>=80)){ %>
+          <% if(accessories === "Rain" || accessories === "Haze" || accessories === "Thunderstorm" )  { %>
+            <% if (intRandom === 1) { %>
+              <img class="people" src="/assests/People/accessories/rain1.png">
+           
+            <% } else if (intRandom === 2) { %>
+                <img class="people" src="/assests/People/accessories/rain2.png">
+            
+            <% } else if (intRandom === 3) { %>
+              <img class="people" src="/assests/People/accessories/rain3.png">
+            
+            <% } else if (intRandom === 4) { %>
+            <img class="people" src="/assests/People/accessories/rain4.png">
+            
+            <% } else if (intRandom === 5) { %>
+            <img class="people" src="/assests/People/accessories/rain5.png">
+ 
+            <% } %>
+            <% } else { %>
+          
+              <% if (intRandom === 1) { %>
+                <img class="people" src="/assests/People/Hot1.png">
+    
+              <% } else if (intRandom === 2) { %>
+                  <img class="people" src="/assests/People/Hot2.png">
+              
+              <% } else if (intRandom === 3) { %>
+                <img class="people" src="/assests/People/Hot3.png">
+
+              <% } else if (intRandom === 4) { %>
+                  <img class="people" src="/assests/People/Hot4.png">
+
+              <% } else if (intRandom === 5) { %>
+                  <img class="people" src="/assests/People/Hot5.png">
+        <% } %>
+          <% } %>
+          <% } %>
+          
+        
+        <% if(weather !== null){ %>
+          <img src="<%=icon%>" class="icon">
+          <h1 class="temp"><%= weather %></h1>
+          <p class="location"><%= location%></p>
+          <p class="description"><%=description%></p> 
+        <% } %>
+      
+      
+        <% if(clothing !== null){ %>
+          <p class="clothing"><%= clothing %></p>
+        <% } %>
+
+        <% if(accessories === "Rain" || accessories === "Haze" || accessories === "Thunderstorm" ){ %>
+          <p class="clothing">You should bring: Umbrella</p>
+        <% } %>
+
+
+        <% if(error !== null){ %>
+          <p><%= error %></p>
+          <link rel="icon" href="/assests/icon-error.png" type="image/png">
+        <% } %>
+
+       
+        <script src="/js/script.js"></script>
+      </fieldset>
+    </div>
+  </body>
+</html>
